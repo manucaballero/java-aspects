@@ -23,6 +23,24 @@
 				"url": "http://localhost:8080/api/changeCar"
 			},
 			"response": []
+		},
+		{
+			"name": "Change moto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"color\": \"green\",\n    \"brand\": \"ducati\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/changeMoto"
+			},
+			"response": []
 		}
 	]
 }
