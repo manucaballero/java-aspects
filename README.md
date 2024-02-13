@@ -34,19 +34,11 @@ Algunos tipos de advices:
 @After
 @Around
 
-SEGUIR CON LAS GUIAS DE SPRING
+En algunos advices se pasa como parámetro un objeto de tipo Joinpoint. Este objeto almacena información sobre el contexto que tiene la aplicación en el momento en el que salta el advice.
 
-Joinpoint:
+Algunos de los métodos que contiene el JoinPoint son los siguientes:
 
-A los advices le podemos pasar un joinPoint como parámetro. 
-The JoinPoint interface provides a number of useful methods:
-
-getArgs(): Returns the method arguments.
-
-getThis(): Returns the proxy object.
-
-getTarget(): Returns the target object.
-
-getSignature(): Returns a description of the method that is being advised.
-
-toString(): Prints a useful description of the method being advised.
+getArgs(): Devuelve los argumentos del método sobre el que se está trabajando. Permite acceder a los valores con los que se invocó el método.
+getKind(): Retorna de que tipo es el joinpoint.
+getSignature(): Proporciona una descripción detallada del método sobre el que se está trabajando.
+getSourceLocation(): Devuelve información sobre la localización física del método sobre el que se está trabajando.
