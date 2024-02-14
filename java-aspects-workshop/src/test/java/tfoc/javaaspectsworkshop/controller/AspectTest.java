@@ -17,10 +17,6 @@ class AspectTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @Autowired
-    private WorkShopAspect workShopAspect;
-
-
     @Test
     void testAspectForCar() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.post("/api/changeCar")
