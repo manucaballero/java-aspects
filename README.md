@@ -28,17 +28,20 @@ En el fragmento de código anterior se declara una clase como aspecto y el advic
 
 Algunos tipos de advices:
 
-@Before
-@AfterReturning
-@AfterThrowing
-@After
-@Around
+* @Before: Se ejecuta antes de empezar el método
+* @AfterReturning: Se ejecuta cuando termina el método correctamente
+* @AfterThrowing: Se ejecuta cuando termina el método al lanzar una excepción
+* @After: Se ejecuta cuando termina el método, da igual como haya terminado
+* @Around:
 
 En algunos advices se pasa como parámetro un objeto de tipo Joinpoint. Este objeto almacena información sobre el contexto que tiene la aplicación en el momento en el que salta el advice.
 
 Algunos de los métodos que contiene el JoinPoint son los siguientes:
 
-getArgs(): Devuelve los argumentos del método sobre el que se está trabajando. Permite acceder a los valores con los que se invocó el método.
-getKind(): Retorna de que tipo es el joinpoint.
-getSignature(): Proporciona una descripción detallada del método sobre el que se está trabajando.
-getSourceLocation(): Devuelve información sobre la localización física del método sobre el que se está trabajando.
+* getArgs(): Devuelve los argumentos del método sobre el que se está trabajando. Permite acceder a los valores con los que se invocó el método.
+
+* getKind(): Retorna de que tipo es el joinpoint.
+
+* getSignature(): Proporciona una descripción detallada del método sobre el que se está trabajando.
+
+* getSourceLocation(): Devuelve información sobre la localización física del método sobre el que se está trabajando.
