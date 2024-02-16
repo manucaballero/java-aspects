@@ -41,9 +41,29 @@ En algunos advices se pasa como parámetro un objeto de tipo Joinpoint. Este obj
 Algunos de los métodos que contiene el JoinPoint son los siguientes:
 
 * getArgs(): Devuelve los argumentos del método sobre el que se está trabajando. Permite acceder a los valores con los que se invocó el método.
-
 * getKind(): Retorna de que tipo es el joinpoint.
-
 * getSignature(): Proporciona una descripción detallada del método sobre el que se está trabajando.
-
 * getSourceLocation(): Devuelve información sobre la localización física del método sobre el que se está trabajando.
+
+
+#### Anotaciones
+
+En el código de ejemplo hemos creado anotaciones que se usarán como pointcut en alguno de los advices. 
+
+```
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface AfterOperation {
+
+}
+```
+
+* @Target: Indica sobre que tipo de elemento se puede colocar la anotación. En este caso sobre métodos.
+* @Retention: Indica cuando está disponible la anotación. En este caso estará disponible en tiempo de ejecución.
+
+Retention puede tener los siguientes valores:
+
+* SOURCE: El compilador las descarta, por lo que no aparecerán ni en el fichero .class. Sirven para dar información durante el desarrollo (marcando algún método por ejemplo).
+* CLASS: Estas anotaciones si estarán en el fichero .class, pero no estarán disponibles en tiempo de ejecución.
+* RUNTIME: Estas anotaciones estarán disponibles tanto en el fichero .class como en tiempo de ejecución, por lo que podrán ser usada por el programa (son las usadas como pointcut en el ejemplo).
+
