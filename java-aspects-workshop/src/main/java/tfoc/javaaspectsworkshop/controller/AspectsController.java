@@ -39,4 +39,15 @@ public class AspectsController {
         return response;
     }
 
+    @PostMapping("/pointcutMoto")
+    public Moto pointcutMoto(@RequestBody Moto moto){
+
+        log.info("1. about to call aspectsUseCase.pointcutWithMoto(), color value: "
+                + moto.getColor() + ", brand value: " + moto.getBrand());
+        Moto response = aspectsUseCase.pointcutWithMoto(moto);
+        log.info("4. just returned from aspectsUseCase.pointcutWithMoto(), brand value: " + moto.getBrand());
+
+        return response;
+    }
+
 }

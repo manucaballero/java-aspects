@@ -31,4 +31,11 @@ public class AspectsUseCase {
         log.info("3. ending aspectsUseCase.workingWithMoto(), color value: " + moto.getColor());
         return moto;
     }
+
+    public Moto pointcutWithMoto(Moto moto){
+        log.info("2. starting aspectsUseCase.pointcutWithMoto(), color value: " + moto.getColor());
+
+        log.info("3. ending aspectsUseCase.pointcutWithMoto(), color value: " + moto.getColor());
+        return moto;
+    }
 }

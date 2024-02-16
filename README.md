@@ -1,4 +1,4 @@
-# java-aspects
+# Programación orientada a aspectos en Java
 
 La idea detrás de la programación orientada a aspectos (AOP) es separar aspectos transversales de la aplicación de la propia lógica de negocio, llevando a aspectos funcionalidades como auditoría, seguridad... evitando tener que gestionarlas a lo largo de la lógica del negocio.
 
@@ -7,7 +7,7 @@ Este aspecto mira en el token del usuario que realiza la petición si es una per
 
 Conceptos y como implementar un aspecto en Spring:
 
-Para poder crear un aspecto tendremos que etiquetar una clase con @Aspect.
+Para poder crear un aspecto tendremos que etiquetar una clase con @Aspect y @Component.
 La clase contiene 'advices', que son los bloques de código que se ejecutan en los flujos de la aplicación que les especifiquemos.
 
 ```
@@ -28,11 +28,13 @@ En el fragmento de código anterior se declara una clase como aspecto y el advic
 
 Algunos tipos de advices:
 
-* @Before: Se ejecuta antes de empezar el método
-* @AfterReturning: Se ejecuta cuando termina el método correctamente
-* @AfterThrowing: Se ejecuta cuando termina el método al lanzar una excepción
-* @After: Se ejecuta cuando termina el método, da igual como haya terminado
-* @Around:
+* @Before: Se ejecuta antes de empezar el método.
+* @AfterReturning: Se ejecuta cuando termina el método correctamente.
+* @AfterThrowing: Se ejecuta cuando termina el método al lanzar una excepción.
+* @After: Se ejecuta cuando termina el método, da igual como haya terminado.
+* @Around: Permite en el mismo advice ejecutar código antes de empezar el método y tras terminar este.
+
+En el aspecto visto anteriormente tenemos lo siguiente dentro de la etiqueta before (execution(* com.tfoc.MiClase.miMetodo())). A esta expresión se la conoce como pointcut y nos indica en que lugares del código de nuestra aplicación aplica el aspecto, esto es, donde salta. En el caso del ejemplo vemos como es dentro del paquete com.tfoc, en la clase MiClase y en el método miMetodo. Las posibilidades son muy amplias, desde usar anotaciones, que se ejecute si tiene un parámetro de algún tipo, etc.
 
 En algunos advices se pasa como parámetro un objeto de tipo Joinpoint. Este objeto almacena información sobre el contexto que tiene la aplicación en el momento en el que salta el advice.
 

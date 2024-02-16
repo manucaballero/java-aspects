@@ -7,6 +7,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 import tfoc.javaaspectsworkshop.domain.Car;
+import tfoc.javaaspectsworkshop.domain.Moto;
 
 @Aspect
 @Component
@@ -33,6 +34,22 @@ public class WorkShopAspect {
             if (arg instanceof Car) {
                 log.info("setting brand to aston martin ");
                 ((Car) arg).setBrand("AM");
+            }
+        }
+
+        log.info("joinPoint.getKind(): " + joinPoint.getKind());
+        log.info("joinPoint.getSignature(): " + joinPoint.getSignature().toString());
+        log.info("joinPoint.getSourceLocation().getWithinType().getName(): " + joinPoint.getSourceLocation().getWithinType().getName());
+    }
+
+    @After(value = "execution(* tfoc.javaaspectsworkshop.services.AspectsUseCase.pointcutWithMoto(..))")
+    public void pointcutWithMotoAspect(JoinPoint joinPoint){
+
+        log.info("starting pointcutWithMotoAspect advice");
+        for (Object arg : joinPoint.getArgs()) {
+            if (arg instanceof Moto) {
+                log.info("setting brand to aston martin ");
+                ((Moto) arg).setBrand("AM");
             }
         }
 

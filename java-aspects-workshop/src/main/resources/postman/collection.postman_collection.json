@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f5229a7e-0cca-4e84-b497-878e601d1200",
+		"_postman_id": "91e3ce55-c82c-40ce-a31c-4721a8f8b866",
 		"name": "Java-aspects-workshop",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "27555381"
@@ -39,6 +39,24 @@
 					}
 				},
 				"url": "http://localhost:8080/api/changeMoto"
+			},
+			"response": []
+		},
+		{
+			"name": "Pointcut moto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"color\": \"green\",\n    \"brand\": \"ducati\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/pointcutMoto"
 			},
 			"response": []
 		}
